@@ -9,7 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dishesRouter = require('./routes/dishesRouter');
 var leaderRouter = require('./routes/leaderRouter');
-var artRouter = require('./routes/artTemplateRouter')
+var artTmlRouter = require('./routes/artTemplateRouter')
+
 var template = require('art-template');
 
 var app = express();
@@ -24,6 +25,7 @@ app.engine('.html', template.__express);
 app.set('view engine', 'html');
 
 
+
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -33,12 +35,13 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/arttemplate', artRouter);
+
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dishes', dishesRouter);
 app.use('/leader', leaderRouter);
+app.use('/arttemplate', artTmlRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
