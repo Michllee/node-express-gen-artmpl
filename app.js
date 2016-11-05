@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -23,6 +23,7 @@ template.config('base', '');
 template.config('extname', '.html');
 app.engine('.html', template.__express);
 app.set('view engine', 'html');
+
 
 
 
@@ -77,3 +78,5 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 app.listen(3000);
+
+//a
